@@ -269,7 +269,7 @@ a {
   font-weight: 500;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .btn-primary {
@@ -282,9 +282,7 @@ a {
   background: var(--pink-strong);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow:
-    0 0 24px rgba(244, 114, 182, 0.75),
-    0 0 48px rgba(236, 72, 153, 0.35);
+  box-shadow: 0 12px 28px rgba(236, 72, 153, 0.22);
 }
 
 .btn-outline {
@@ -296,7 +294,7 @@ a {
 .btn-outline:hover {
   border-color: var(--pink);
   color: var(--pink);
-  box-shadow: 0 0 18px rgba(244, 114, 182, 0.25);
+  box-shadow: 0 10px 24px rgba(244, 114, 182, 0.12);
 }
 
 .full-width {
@@ -924,6 +922,20 @@ a {
 
   .skills-grid {
     border-right: 1px solid var(--border);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
