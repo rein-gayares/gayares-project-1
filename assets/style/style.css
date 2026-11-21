@@ -477,14 +477,16 @@ a {
   transform: none;
 }
 
-.about-grid h3 {
-  font-size: 1.15rem;
-  margin-bottom: 0.9rem;
+ .about-grid h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.1rem;
 }
 
 .about-grid p {
+  max-width: 70ch;
   color: var(--text-muted);
-  font-size: 0.96rem;
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
 .about-grid p + p {
@@ -500,9 +502,13 @@ a {
   flex-direction: column;
   justify-content: space-between;
   background: var(--surface);
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius);
+  padding: 1.75rem;
 }
 
 .goal-card blockquote {
+  max-width: 38ch;
   font-size: 1.05rem;
   color: var(--text);
   border-left: 2px solid var(--pink);
