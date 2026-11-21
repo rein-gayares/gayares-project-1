@@ -923,6 +923,10 @@ a {
   .skills-grid {
     border-right: 1px solid var(--border);
   }
+
+  .hero h1 {
+    max-width: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -965,6 +969,36 @@ a {
   }
 
   .section {
-    padding: 3.5rem 0;
+    padding: 3.25rem 0;
+  }
+
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar {
+    width: 128px;
+    height: 128px;
+  }
+
+  .quick-info li {
+    align-items: baseline;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .project-preview {
+    aspect-ratio: 16 / 11;
+  }
+
+  .footer-inner {
+    flex-direction: column;
   }
 }
