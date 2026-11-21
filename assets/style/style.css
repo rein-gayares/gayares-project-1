@@ -100,6 +100,17 @@ a {
   }
 }
 
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes ambient-float {
   0%, 100% {
     box-shadow:
@@ -296,7 +307,7 @@ a {
    Hero Section
    ================================ */
 .hero {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 72px);
   display: flex;
   align-items: center;
   padding: 3.5rem 0;
@@ -306,8 +317,12 @@ a {
 .hero-grid {
   display: grid;
   grid-template-columns: 1.55fr 0.85fr;
-  gap: 4.5rem;
+  gap: 5.5rem;
   align-items: center;
+}
+
+.hero-content {
+  animation: reveal-up 700ms ease-out both;
 }
 
 .badge {
@@ -332,8 +347,9 @@ a {
   animation: pulse-glow 2s infinite ease-in-out;
 }
 
-.hero h1 {
-  font-size: clamp(2.2rem, 4.5vw, 3.3rem);
+ .hero h1 {
+  max-width: 12ch;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: 1.15;
   margin-bottom: 1.25rem;
 }
@@ -351,6 +367,7 @@ a {
   font-size: 1.05rem;
   max-width: 56ch;
   margin-bottom: 2rem;
+  line-height: 1.8;
 }
 
 .subtitle strong {
@@ -371,6 +388,7 @@ a {
   gap: 1.35rem;
   align-items: start;
   background: transparent;
+  animation: reveal-up 700ms 120ms ease-out both;
   border: 0;
   border-left: 1px solid var(--border-pink);
   border-radius: 0;
