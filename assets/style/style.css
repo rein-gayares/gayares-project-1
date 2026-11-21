@@ -672,7 +672,7 @@ a {
 /* ================================
    Projects Section
    ================================ */
-.project-card {
+ .project-card {
   display: grid;
   grid-template-columns: 1.45fr 0.55fr;
   gap: 4rem;
@@ -684,16 +684,21 @@ a {
   padding: 2rem 0 0;
 }
 
+.project-card > * {
+  min-width: 0;
+}
+
 .project-card:hover {
   box-shadow: none;
   transform: none;
 }
 
 .project-preview {
+  aspect-ratio: 16 / 10;
   background: #0d0d12;
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.25rem;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
@@ -755,13 +760,14 @@ a {
   width: 72%;
 }
 
-.project-info h3 {
-  font-size: 1.45rem;
+ .project-info h3 {
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
   margin: 0.75rem 0;
 }
 
-.project-info p {
+ .project-info p {
   color: var(--text-muted);
+  line-height: 1.8;
   margin-bottom: 1.25rem;
   font-size: 0.96rem;
 }
