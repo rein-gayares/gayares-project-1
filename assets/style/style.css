@@ -15,7 +15,7 @@
   --pink-soft: rgba(244, 114, 182, 0.12);
   --pink-glow: rgba(244, 114, 182, 0.45);
 
-  --radius: 16px;
+  --radius: 8px;
   --max-width: 1080px;
   --transition: 0.3s ease;
 }
@@ -37,8 +37,9 @@ body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   background-color: var(--bg);
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(244, 114, 182, 0.12), transparent 35%),
-    radial-gradient(circle at 85% 80%, rgba(236, 72, 153, 0.1), transparent 40%);
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 32px 32px;
   color: var(--text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -175,11 +176,18 @@ a {
    Shared Components
    ================================ */
 .section {
-  padding: 4.5rem 0;
+  padding: 4.75rem 0;
+  border-top: 1px solid var(--border);
 }
 
 .section-header {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: end;
+  gap: 2rem;
   margin-bottom: 2.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .section-label {
@@ -261,13 +269,17 @@ a {
    Hero Section
    ================================ */
 .hero {
-  padding: 5rem 0 4rem;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 3rem;
+  grid-template-columns: 1.55fr 0.85fr;
+  gap: 4.5rem;
   align-items: center;
 }
 
@@ -327,12 +339,16 @@ a {
 
 /* Profile Card */
 .profile-card {
-  background: var(--surface);
-  border: 1px solid var(--border-pink);
-  border-radius: 20px;
-  padding: 2rem;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.35rem;
+  align-items: start;
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--border-pink);
+  border-radius: 0;
+  padding: 0 0 0 2rem;
   position: relative;
-  animation: ambient-float 4.5s infinite ease-in-out;
   transition: transform var(--transition);
 }
 
@@ -341,16 +357,14 @@ a {
 }
 
 .avatar {
-  width: 76px;
-  height: 76px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #0b0b0f;
-  background: linear-gradient(135deg, #fbcfe8, var(--pink));
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: 2px solid var(--pink);
+  background: var(--bg);
   box-shadow:
     0 0 22px rgba(244, 114, 182, 0.55),
     0 0 42px rgba(236, 72, 153, 0.25);
@@ -366,7 +380,8 @@ a {
 }
 
 .profile-meta h2 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 1.25;
 }
 
 .role {
@@ -405,8 +420,20 @@ a {
    ================================ */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 3.5rem;
+}
+
+.about-grid .card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.about-grid .card:hover {
+  box-shadow: none;
+  transform: none;
 }
 
 .about-grid h3 {
@@ -538,8 +565,18 @@ a {
    ================================ */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  gap: 0;
+}
+
+.skills-grid .skill-group {
+  border: 0;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: rgba(19, 19, 26, 0.72);
 }
 
 .skill-group h3 {
@@ -584,9 +621,19 @@ a {
    ================================ */
 .project-card {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 2rem;
+  grid-template-columns: 1.45fr 0.55fr;
+  gap: 4rem;
   align-items: center;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--border-pink);
+  border-radius: 0;
+  padding: 2rem 0 0;
+}
+
+.project-card:hover {
+  box-shadow: none;
+  transform: none;
 }
 
 .project-preview {
@@ -671,9 +718,20 @@ a {
    ================================ */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 1.5rem;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 3.5rem;
   align-items: start;
+}
+
+.contact-cards .card,
+.contact-form {
+  border-radius: 0;
+  background: transparent;
+}
+
+.contact-cards .card {
+  border-width: 0 0 1px;
+  padding: 1.1rem 0;
 }
 
 .contact-cards {
@@ -783,7 +841,30 @@ a {
   }
 
   .hero {
-    padding-top: 3.5rem;
+    min-height: auto;
+    padding: 3.5rem 0;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .project-card,
+  .contact-grid {
+    gap: 2.5rem;
+  }
+
+  .profile-card {
+    border-left: 0;
+    border-top: 1px solid var(--border-pink);
+    padding: 2rem 0 0;
+  }
+
+  .section-header {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .skills-grid {
+    border-right: 1px solid var(--border);
   }
 }
 
