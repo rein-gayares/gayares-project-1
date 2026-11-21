@@ -621,6 +621,15 @@ a {
   border-bottom: 1px solid var(--border);
   border-radius: 0;
   background: rgba(19, 19, 26, 0.72);
+  min-height: 230px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.skills-grid .skill-group:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-pink);
+  transform: none;
+  box-shadow: none;
 }
 
 .skill-group h3 {
@@ -637,7 +646,7 @@ a {
 .tag {
   font-size: 0.83rem;
   padding: 0.4rem 0.85rem;
-  border-radius: 999px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
   color: var(--text-muted);
