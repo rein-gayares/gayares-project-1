@@ -929,6 +929,37 @@ a {
   }
 }
 
+@media print {
+  :root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #111111;
+    --text-muted: #444444;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .navbar,
+  .hero-actions,
+  .contact-form {
+    display: none !important;
+  }
+
+  .section,
+  .footer {
+    break-inside: avoid;
+  }
+
+  .card,
+  .profile-card,
+  .project-card,
+  .timeline-item {
+    box-shadow: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
